@@ -1,0 +1,20 @@
+﻿namespace WebApplication44.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class demo5 : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.AdminFlights", "DepartureDate", c => c.DateTime(nullable: false));
+            DropColumn("dbo.AdminFlights", "Departure_Date");
+        }
+        
+        public override void Down()
+        {
+            AddColumn("dbo.AdminFlights", "Departure_Date", c => c.Int(nullable: false));
+            DropColumn("dbo.AdminFlights", "DepartureDate");
+        }
+    }
+}
